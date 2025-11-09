@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PiggyBank — Cofrinho digital</title>
+  <meta name="description" content="PiggyBank é o seu cofrinho digital para controlar gastos, metas e relatórios" />
+  <style>
+    :root{--bg:#0b1220;--card:#0f1a33;--ink:#e7ecff;--muted:#a7b0d6;--brand:#ff7a59;--accent:#ffd166;--line:#213163}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;color:var(--ink);background:linear-gradient(180deg,#0b1220 0%,#0f1a33 100%)}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1060px;margin:0 auto;padding:22px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{width:46px;height:auto;filter:drop-shadow(0 0 12px rgba(255,122,89,0.6))}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:var(--brand);color:#1a0f0a;font-weight:700;box-shadow:0 12px 28px rgba(255,122,89,.35)}
+    .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);box-shadow:none}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .h1{font-size:clamp(28px,4vw,48px);line-height:1.1;margin:10px 0 8px}
+    .sub{color:var(--muted);margin-top:6px}
+    .card{background:linear-gradient(180deg,#0f1a33 0%,#0b1329 100%);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 14px 46px rgba(0,0,0,.35)}
+    .chat{height:320px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding-right:6px}
+    .msg{max-width:80%;padding:10px 14px;border-radius:14px;font-size:15px}
+    .bot{background:#10224d;border:1px solid #28417c}
+    .user{background:#253a72;margin-left:auto}
+    .row{display:flex;gap:10px;margin-top:10px}
+    .input{flex:1;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#0d1530;color:var(--ink)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .kpi{background:#0d1a3b;border:1px solid var(--line);padding:14px;border-radius:14px}
+    .section{margin-top:40px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .shot{aspect-ratio:16/10;background:#0b1531;border:1px dashed #2a3a6a;border-radius:14px;display:grid;place-items:center;color:var(--muted)}
+    footer{opacity:.85;font-size:14px;padding:30px 0}
+    @media(max-width:860px){.hero{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo PiggyBank">
+        <strong>PiggyBank</strong>
+      </div>
+      <div>
+        <a class="btn ghost" href="#recursos">Recursos</a>
+        <a class="btn" href="#comece">Começar</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <h1 class="h1">Cofrinho digital para clareza e controle</h1>
+        <p class="sub">Organize gastos acompanhe metas e gere relatórios com leveza</p>
+        <div class="row" style="margin-top:14px">
+          <a class="btn" href="#demo">Ver demo</a>
+          <a class="btn ghost" href="#recursos">Explorar</a>
+        </div>
+        <div class="grid" style="margin-top:16px">
+          <div class="kpi"><strong>12%</strong><br/>média de economia sugerida</div>
+          <div class="kpi"><strong>2 min</strong><br/>configuração inicial</div>
+          <div class="kpi"><strong>PDF</strong><br/>relatórios prontos</div>
+        </div>
+      </div>
+
+      <div id="demo" class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <img src="images/logo.png" alt="Logo PiggyBank" style="width:36px;height:auto;border-radius:6px;filter:drop-shadow(0 0 8px rgba(255,122,89,0.6))">
+          <div>
+            <div style="font-weight:800">PiggyBank</div>
+            <div class="sub" style="font-size:12px">Assistente de finanças pessoais</div>
+          </div>
+        </div>
+        <div id="chat" class="chat"></div>
+        <div class="row">
+          <input id="input" class="input" placeholder="Pergunte algo" />
+          <button class="btn" id="send">Enviar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section">
+      <h2>Recursos</h2>
+      <div class="grid" style="margin-top:10px">
+        <div class="card">Resumo do mês categorias e alertas</div>
+        <div class="card">Metas automáticas e projeções inteligentes</div>
+        <div class="card">Exportação para CSV e PDF</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Galeria</h2>
+      <div class="gallery" style="margin-top:10px">
+        <div class="shot">adicione screenshot 1</div>
+        <div class="shot">adicione screenshot 2</div>
+        <div class="shot">adicione screenshot 3</div>
+      </div>
+    </section>
+
+    <section id="comece" class="section card">
+      <h2>Como começar</h2>
+      <ol>
+        <li>Crie sua conta</li>
+        <li>Conecte sua planilha ou banco</li>
+        <li>Veja o resumo do mês e as sugestões de economia</li>
+      </ol>
+      <p class="sub">Funciona offline com registro manual de transações</p>
+    </section>
+
+    <section class="section">
+      <h2>Contato</h2>
+      <p>Escreva para <a href="mailto:suporte@piggybank.app">suporte@piggybank.app</a></p>
+      <p><a href="privacy.html">Política de privacidade</a> • <a href="terms.html">Termos de uso</a></p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> PiggyBank
+    </footer>
+  </div>
+
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('input');
+    const send = document.getElementById('send');
+    const msgs = [
+      { r: 'bot', t: 'Olá eu sou o PiggyBank. Quer ver para onde foi seu dinheiro' },
+      { r: 'user', t: 'Quais foram meus três maiores gastos' },
+      { r: 'bot', t: 'Alimentação 34 por cento Transporte 22 por cento Moradia 20 por cento' }
+    ];
+    function render(){
+      chat.innerHTML='';
+      msgs.forEach(m=>{
+        const b=document.createElement('div');
+        b.className=`msg ${m.r==='user'?'user':'bot'}`;
+        b.textContent=m.t;
+        chat.appendChild(b);
+      });
+      chat.scrollTop=chat.scrollHeight;
+    }
+    render();
+    send.onclick=()=>{
+      const v=input.value.trim();
+      if(!v) return;
+      msgs.push({ r:'user', t:v });
+      input.value='';
+      render();
+      setTimeout(()=>{ msgs.push({ r:'bot', t:'Analisando dados. Economia potencial de 12 por cento neste mês' }); render(); }, 600);
+    };
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
