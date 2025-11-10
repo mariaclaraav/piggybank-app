@@ -1,23 +1,16 @@
-name: Auto PR from develop to main
+# File: .github/workflows/pull-request.yml
 
 on:
   push:
     branches:
-      - develop
+    - develop
 
 jobs:
-  create-pull-request:
+  pull-request:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: develop
-          base: main
-          title: "Auto PR: Sync develop → main"
-          body: "Este pull request foi criado automaticamente quando algo foi atualizado na branch **develop**."
-          labels: "automated, sync"
+    - uses: actions/checkout@v3
+    - name: pull-request
+      uses: diillson/auto-pull-request@v1.0.1
+      with:
+        destination_branch: "main"
