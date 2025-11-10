@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PiggyBank — Cofrinho digital</title>
-  <meta name="description" content="PiggyBank é o seu cofrinho digital para controlar gastos, metas e relatórios" />
+  <title>PiggyBank — Atualize sua planilha pelo WhatsApp</title>
+  <meta name="description" content="Atualize automaticamente sua planilha de gastos a partir de mensagens, áudios ou fotos enviadas pelo WhatsApp. O PiggyBank categoriza despesas e não se conecta a banco de dados." />
   <style>
     :root{--bg:#0b1220;--card:#0f1a33;--ink:#e7ecff;--muted:#a7b0d6;--brand:#ff7a59;--accent:#ffd166;--line:#213163}
     *{box-sizing:border-box}
@@ -42,7 +42,7 @@
         <img src="images/logo.png" alt="Logo PiggyBank">
         <strong>PiggyBank</strong>
       </div>
-      <div>
+      <div style="display:flex;align-items:center">
         <a class="btn ghost" href="#recursos">Recursos</a>
         <a class="btn" href="#comece">Começar</a>
       </div>
@@ -50,16 +50,15 @@
 
     <section class="hero">
       <div>
-        <h1 class="h1">Cofrinho digital para clareza e controle</h1>
-        <p class="sub">Organize gastos acompanhe metas e gere relatórios com leveza</p>
+  <h1 class="h1">Atualize sua planilha diretamente pelo WhatsApp</h1>
+  <p class="sub">Envie mensagem, áudio ou foto pelo WhatsApp — o app interpreta, categoriza o gasto e atualiza sua planilha. Não usa banco de dados.</p>
         <div class="row" style="margin-top:14px">
           <a class="btn" href="#demo">Ver demo</a>
           <a class="btn ghost" href="#recursos">Explorar</a>
         </div>
         <div class="grid" style="margin-top:16px">
-          <div class="kpi"><strong>12%</strong><br/>média de economia sugerida</div>
           <div class="kpi"><strong>2 min</strong><br/>configuração inicial</div>
-          <div class="kpi"><strong>PDF</strong><br/>relatórios prontos</div>
+          <div class="kpi"><strong>Categorias</strong><br/>classificação automática</div>
         </div>
       </div>
 
@@ -68,7 +67,7 @@
           <img src="images/logo.png" alt="Logo PiggyBank" style="width:36px;height:auto;border-radius:6px;filter:drop-shadow(0 0 8px rgba(255,122,89,0.6))">
           <div>
             <div style="font-weight:800">PiggyBank</div>
-            <div class="sub" style="font-size:12px">Assistente de finanças pessoais</div>
+            <div class="sub" style="font-size:12px">Atualiza sua planilha a partir do WhatsApp</div>
           </div>
         </div>
         <div id="chat" class="chat"></div>
@@ -82,35 +81,27 @@
     <section id="recursos" class="section">
       <h2>Recursos</h2>
       <div class="grid" style="margin-top:10px">
-        <div class="card">Resumo do mês categorias e alertas</div>
-        <div class="card">Metas automáticas e projeções inteligentes</div>
-        <div class="card">Exportação para CSV e PDF</div>
+        <div class="card">Entrada via WhatsApp (mensagem, áudio, foto)</div>
+        <div class="card">Classificação automática por categorias (alimentação, transporte, moradia, etc.)</div>
+        <div class="card">Atualiza diretamente sua planilha (CSV/Google Sheets) — sem banco de dados</div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Galeria</h2>
-      <div class="gallery" style="margin-top:10px">
-        <div class="shot">adicione screenshot 1</div>
-        <div class="shot">adicione screenshot 2</div>
-        <div class="shot">adicione screenshot 3</div>
-      </div>
-    </section>
+    <!-- galeria removida conforme solicitado -->
 
     <section id="comece" class="section card">
       <h2>Como começar</h2>
       <ol>
-        <li>Crie sua conta</li>
-        <li>Conecte sua planilha ou banco</li>
-        <li>Veja o resumo do mês e as sugestões de economia</li>
+        <li>Configure o destino da planilha (Google Sheets ou arquivo CSV)</li>
+        <li>Ative o número ou o mecanismo de encaminhamento do seu WhatsApp para o PiggyBank</li>
+        <li>Envie uma mensagem, áudio ou foto com o comprovante — o app extrai valores, data e categoria e atualiza a planilha</li>
       </ol>
-      <p class="sub">Funciona offline com registro manual de transações</p>
+      <p class="sub">Privacidade: o aplicativo não se conecta a um banco de dados central — seus gastos ficam apenas na sua planilha.</p>
     </section>
 
     <section class="section">
       <h2>Contato</h2>
-      <p>Escreva para <a href="mailto:suporte@piggybank.app">suporte@piggybank.app</a></p>
-      <p><a href="privacy.html">Política de privacidade</a> • <a href="terms.html">Termos de uso</a></p>
+      <p>Tem dúvidas sobre como encaminhar mensagens do WhatsApp ou sobre privacidade? Consulte nossa <a href="privacy.html">Política de privacidade</a> ou os <a href="terms.html">Termos de uso</a>.</p>
     </section>
 
     <footer>
@@ -123,9 +114,9 @@
     const input = document.getElementById('input');
     const send = document.getElementById('send');
     const msgs = [
-      { r: 'bot', t: 'Olá eu sou o PiggyBank. Quer ver para onde foi seu dinheiro' },
-      { r: 'user', t: 'Quais foram meus três maiores gastos' },
-      { r: 'bot', t: 'Alimentação 34 por cento Transporte 22 por cento Moradia 20 por cento' }
+      { r: 'bot', t: 'Olá — eu sou o PiggyBank. Envie uma mensagem, áudio ou foto pelo WhatsApp e eu atualizo sua planilha.' },
+      { r: 'user', t: 'Enviei um comprovante de almoço pelo WhatsApp' },
+      { r: 'bot', t: 'Gasto identificado: Alimentação — R$ 45,00 — categorizado e adicionado à sua planilha.' }
     ];
     function render(){
       chat.innerHTML='';
@@ -144,7 +135,7 @@
       msgs.push({ r:'user', t:v });
       input.value='';
       render();
-      setTimeout(()=>{ msgs.push({ r:'bot', t:'Analisando dados. Economia potencial de 12 por cento neste mês' }); render(); }, 600);
+  setTimeout(()=>{ msgs.push({ r:'bot', t:'Recebido via WhatsApp — extraindo valor e categorizando. Registro adicionado à planilha.' }); render(); }, 600);
     };
     document.getElementById('year').textContent=new Date().getFullYear();
   </script>
